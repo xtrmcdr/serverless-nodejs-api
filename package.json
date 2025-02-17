@@ -8,6 +8,10 @@
     "express": "^4.19.2",
     "serverless-http": "^3.2.0"
   },
+  "scripts": {
+    "dev": "sls offline --region ap-southeast-5 --stage dev",
+    "prod": "sls offline --region ap-southeast-5 --stage prod"
+  },
   "devDependencies": {
     "drizzle-kit": "^0.30.4",
     "serverless-offline": "^14.4.0"

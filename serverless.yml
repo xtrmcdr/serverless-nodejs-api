@@ -5,13 +5,18 @@ app: serverless-node-express
 # "service" is the name of this project. This will also be added to your AWS resource names.
 service: serverless-nodejs-api
 
+useDotenv: true
+
 provider:
   name: aws
-  runtime: nodejs20.x
+  runtime: nodejs22.x
+  environment:
+    DEBUG: ${env:DEBUG, 0}
+    DATABASE_URL: ${env:DATABASE_URL, "fallback"}
 
 functions:
   api:
-    handler: handler.handler
+    handler: src/app.handler
     events:
       - httpApi: "*"
 plugins:
